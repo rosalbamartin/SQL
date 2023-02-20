@@ -1,0 +1,66 @@
+-------------------
+--World population
+-------------------
+
+-- DATA EXPLORATION
+
+SELECT *
+FROM world_population.`population 1970_2010`; 
+SELECT *
+FROM world_population.`population 2015_2022`
+limit 10; 
+
+
+SELECT *
+FROM world_population.`population 1970_2010`
+JOIN world_population.`population 2015_2022`
+USING (country);
+
+
+select country, 2022_population, continent
+from world_population.`population 2015_2022`
+order by 2022_population DESC
+limit 10;
+
+--JOINING TABLES AND USING ALIAS 
+
+select *
+FROM world_population.`population 1970_2010` AS pop70
+join world_population.`population 2015_2022` AS pop15
+ON pop70.country = pop15.country;
+
+-- total population per decade 
+
+SELECT SUM(2022_population),SUM(2020_population),SUM(2015_population),SUM(2010_population),SUM(2000_population),SUM(1990_population),
+SUM(1980_population),SUM(1970_population), continent
+from world_population.`population 1970_2010`
+JOIN world_population.`population 2015_2022`
+ON `population 1970_2010`.country = `population 2015_2022`.country; 
+
+-- Joining tables, calculating population density and growth rate
+
+select 
+pop70.country,
+pop70.continent, 
+2022_population,
+2020_population,
+2015_population,
+2010_population,
+2000_population,
+1990_population,
+1980_population,
+1970_population,
+pop70.area_km2,
+2022_population/pop70.area_km2 AS population_density,
+2022_population-2020_population/2020_population AS growth_rate 
+FROM world_population.`population 1970_2010` AS pop70
+join world_population.`population 2015_2022` AS pop15
+ON pop70.country = pop15.country
+order by growth_rate desc
+limit 100;
+
+
+
+
+
+
