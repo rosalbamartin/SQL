@@ -83,57 +83,74 @@ from sales
 where country = "United states" and price > 1500 
 group by city;
 ```
+RESULTS
 
-| product	price	city
-Couch	3600	Cahaba Heights
-Couch	3600	Delray Beach
-Couch	3600	Flossmoor
-Couch	3600	Irvine
-Bed	7500	Miami
-Bed	7500	New Rochelle
-Couch	3600	Pittsfield
-Couch	3600	Sandy Springs
-Bed	7500	Woodsboro
+| product |	price	| city |   
+| :--: | :---: | :--: |   
+| Couch |	3600 | Cahaba Heights |   
+| Couch |	3600 | Delray Beach |   
+| Couch |	3600 | Flossmoor |   
+| Couch |	3600 |	Irvine |   
+| Bed |	7500 | Miami |   
+| Bed |	7500 | New Rochelle |   
+| Couch |	3600 | Pittsfield |   
+| Couch |	3600 | Sandy Springs |   
+| Bed |	7500 | Woodsboro |   
 
+```sql
 select product, 
 price, 
 city
 from sales
 where state = "FL" OR state = "NY";
+```   
+RESULTS 
 
-product	price	city
-Chair	1200	New York
-Chair	1200	New York
-Chair	1200	New York
-Bed	7500	Miami
-Chair	1200	Brooklyn
-Couch	3600	Delray Beach
-Chair	1200	Fort Lauderdale
-Bed	7500	New Rochelle
-Chair	1200	Staten Island
-Chair	1200	Amelia Island
-Chair	1200	Coral Gables
-Chair	1200	Miami
+| product |	price | city |   
+| :--: | :---: | :--: |    
+| Chair |	1200 | New York |
+| Chair |	1200 | New York |
+| Chair |	1200 | New York |  
+| Bed	| 7500 | Miami |   
+| Chair |	1200 | Brooklyn |   
+| Couch |	3600 | Delray Beach |   
+| Chair |	1200 | Fort Lauderdale |   
+| Bed |	7500 | New Rochelle |   
+| Chair |	1200 | Staten Island |     
+| Chair |	1200 | Amelia Island |  
+| Chair |	1200 | Coral Gables |   
+| Chair |	1200 | Miami |   
+
+```sql   
+select count(*),   
+case   
+when price >= 7000 then "Luxury items"   
+when price = 3600 then "standard items"  
+ELSE "discount items"   
+end items   
+from sales   
+group by items;  
+```
+ RESULTS
+ 
+| count(*) | items |   
+| :--: | :---: |   
+| 4 |	Luxury items |    
+| 84 | discount items |   
+| 12 | standard items |  
 
 
-select count(*),
-case
-when price >= 7000 then "Luxury items"
-when price = 3600 then "standard items"
-ELSE "discount items"
-end items
-from sales
-group by items;
-count(*)	items
-4	Luxury items
-84	discount items
-12	standard items
+```sql   
+select product,   
+AVG(price) as avg_price   
+from sales   
+group by product   
+having avg_price > 1500;   
+```   
 
-select product,
-AVG(price) as avg_price
-from sales
-group by product
-having avg_price > 1500;
-product	avg_price
-Bed	7500
-Couch	3600
+RESULTS
+
+| product	| avg_price |
+| :--: | :---: | 
+| Bed |	7500 |
+| Couch |	3600 |
