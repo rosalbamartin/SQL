@@ -22,16 +22,16 @@ INSERT INTO supermarket_inventory VALUES(9213, "plum", 10, 7, "California");
 
 ```sql
 SELECT * FROM supermarket_inventory ORDER BY price;
-DATABASE SCHEMA
 ```
+DATABASE SCHEMA   
 
-supermarket_inventory15 rows
+supermarket_inventory15 rows   
 
-code (PK)INTEGER
-productTEXT
-quanityINTEGER
-priceINTEGER
-originTEX T
+code (PK) INTEGER   
+product TEXT       
+quanity INTEGER   
+price INTEGER   
+origin TEXT   
 
 | code | product | quantity |	price |	origin |
 | :---: | :---: | :---: | :---: | :---: | 
