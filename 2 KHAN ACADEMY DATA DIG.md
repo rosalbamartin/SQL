@@ -1,3 +1,6 @@
+
+# Data Dig
+
 We’ve curated a set of interesting data sets for you: NASA astronauts, Superbowl results, Pokemon stats, NBA players, Top movies, Top countries by population, Solar system objects by size, Marvel characters, Furniture store sales, Earned KA badges, Winston's donut logs, Card game results, and NFL draft picks.
 
 Pick one of those data sets or create a data set like that, and use advanced SELECT queries to discover things about the data. What sort of questions might one have about that data, like if they were using it for an app or a business idea? Here are some ideas:
@@ -70,7 +73,7 @@ RESULTS
 | Bed |	7500 |
 
 | product | price |	transaction_date |
-| :--: | :---: |
+| :--: | :---: | :---: |
 | Bed |	7500 | 1/8/09 15:16 |
 | Chair |	1200 |	1/13/09 19:39 |
 | Couch |	3600 |	1/5/09 8:58 |
